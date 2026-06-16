@@ -1,0 +1,750 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Moaz Mohamed — Cybersecurity Professional</title>
+<meta name="description" content="Moaz Mohamed - Cybersecurity Professional with 7+ years experience in ethical hacking, red teaming, bug bounty hunting, penetration testing, and front-end development. OSCP Certified.">
+<meta name="keywords" content="Moaz Mohamed, cybersecurity, ethical hacking, access, penetration testing, red team, bug bounty, OSCP, security researcher, network security, web security, vulnerability assessment, frontend developer, JavaScript, React, Python, Burp Suite, Nmap, Metasploit">
+<meta name="author" content="Moaz Mohamed">
+<meta name="robots" content="index, follow">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800;900&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #0a0e14;
+  --surface: #111820;
+  --card: #172028;
+  --border: rgba(0,150,255,0.15);
+  --green: #00aaff;
+  --cyan: #00d4ff;
+  --red: #ff2244;
+  --orange: #ff6633;
+  --white: #e8edf2;
+  --muted: rgba(200,215,230,0.5);
+  --text: rgba(200,215,230,0.85);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{
+  font-family:'Inter',sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
+}
+a{text-decoration:none;color:inherit;}
+img{display:block;max-width:100%;}
+
+::-webkit-scrollbar{width:4px;}
+::-webkit-scrollbar-track{background:var(--bg);}
+::-webkit-scrollbar-thumb{background:var(--cyan);border-radius:4px;}
+
+::selection{background:var(--cyan);color:var(--bg);}
+
+/* ===== NAV ===== */
+nav{
+  position:fixed;inset:0 0 auto 0;z-index:1000;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 6%;height:68px;
+  background:rgba(10,14,20,0.92);
+  backdrop-filter:blur(20px);
+  border-bottom:1px solid var(--border);
+}
+
+.logo{
+  font-family:'JetBrains Mono',monospace;
+  font-size:1.1rem;font-weight:700;
+  color:var(--cyan);
+  display:flex;align-items:center;gap:8px;
+}
+.logo::before{
+  content:'>';
+  color:var(--muted);font-weight:400;
+}
+
+.menu{display:flex;list-style:none;gap:2rem;}
+.menu a{
+  font-size:.88rem;font-weight:500;
+  color:var(--muted);transition:color .3s;
+  position:relative;
+}
+.menu a::after{
+  content:'';position:absolute;
+  bottom:-4px;right:0;
+  width:0;height:1.5px;
+  background:var(--green);
+  transition:width .3s;
+}
+.menu a:hover{color:var(--white);}
+.menu a:hover::after{width:100%;}
+
+/* ===== HERO ===== */
+.hero{
+  min-height:100vh;
+  display:flex;align-items:center;justify-content:center;
+  padding:100px 6% 80px;
+  position:relative;overflow:hidden;
+}
+.hero-bg{
+  position:absolute;inset:0;
+  background:
+    radial-gradient(ellipse 50% 50% at 15% 50%,rgba(255,34,68,.2),transparent 60%),
+    radial-gradient(ellipse 50% 50% at 85% 50%,rgba(0,170,255,.2),transparent 60%),
+    radial-gradient(ellipse 60% 40% at 50% 0%,rgba(0,212,255,.08),transparent 60%),
+    var(--bg);
+}
+.hero-grid{
+  position:absolute;inset:0;
+  background-image:
+    linear-gradient(rgba(0,255,136,.04) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(0,255,136,.04) 1px,transparent 1px);
+  background-size:50px 50px;
+  mask-image:radial-gradient(ellipse 70% 70% at 50% 50%,black,transparent);
+}
+.hero-content{position:relative;z-index:2;text-align:center;max-width:800px;}
+
+.hero-badge{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:6px 18px;
+  border:1px solid rgba(0,170,255,.3);
+  border-radius:50px;
+  font-size:.75rem;font-weight:600;letter-spacing:2px;
+  text-transform:uppercase;
+  color:var(--cyan);margin-bottom:2rem;
+  font-family:'JetBrains Mono',monospace;
+}
+.hero-badge::before{
+  content:'';width:6px;height:6px;border-radius:50%;
+  background:var(--cyan);animation:pulse 2s infinite;
+}
+@keyframes pulse{
+  0%,100%{opacity:1;transform:scale(1);}
+  50%{opacity:.3;transform:scale(1.5);}
+}
+
+.hero h1{
+  font-size:clamp(2.2rem,6vw,4.5rem);
+  font-weight:900;line-height:1.1;
+  color:var(--white);margin-bottom:.8rem;
+  letter-spacing:-1px;
+}
+.hero h1 .highlight{color:var(--red);}
+.hero h1 .highlight2{color:var(--cyan);}
+
+.hero-sub{
+  font-family:'JetBrains Mono',monospace;
+  font-size:clamp(.9rem,2vw,1.1rem);
+  color:var(--muted);margin-bottom:1.5rem;
+}
+.hero-sub span{color:var(--cyan);}
+
+.hero p{
+  font-size:clamp(1rem,2vw,1.15rem);
+  color:var(--muted);line-height:1.9;
+  max-width:560px;margin:0 auto 2.5rem;
+}
+
+.hero-cta{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;}
+
+.btn-primary{
+  display:inline-flex;align-items:center;gap:10px;
+  padding:14px 34px;
+  background:var(--cyan);color:var(--bg);
+  font-family:'Inter',sans-serif;
+  font-size:.95rem;font-weight:800;border-radius:50px;border:none;
+  cursor:pointer;transition:all .3s;
+  box-shadow:0 8px 32px rgba(0,170,255,.25);
+}
+.btn-primary:hover{transform:translateY(-3px);box-shadow:0 16px 48px rgba(0,170,255,.35);}
+
+.btn-secondary{
+  display:inline-flex;align-items:center;gap:10px;
+  padding:14px 34px;
+  background:transparent;color:var(--white);
+  font-family:'Inter',sans-serif;
+  font-size:.95rem;font-weight:700;border-radius:50px;
+  border:1px solid var(--border);cursor:pointer;transition:all .3s;
+}
+.btn-secondary:hover{border-color:rgba(0,170,255,.4);background:rgba(0,170,255,.05);}
+
+.hero-stats{
+  display:flex;justify-content:center;gap:3rem;
+  margin-top:4rem;padding-top:2.5rem;
+  border-top:1px solid var(--border);flex-wrap:wrap;
+}
+.stat-item{text-align:center;}
+.stat-num{
+  font-family:'JetBrains Mono',monospace;
+  font-size:clamp(1.5rem,3vw,2.2rem);
+  font-weight:700;color:var(--cyan);line-height:1;margin-bottom:.3rem;
+}
+.stat-label{font-size:.82rem;color:var(--muted);font-weight:500;letter-spacing:.5px;}
+
+/* ===== SECTIONS ===== */
+.section{padding:clamp(4rem,8vw,7rem) 6%;}
+
+.section-label{
+  display:inline-flex;align-items:center;gap:8px;
+  font-family:'JetBrains Mono',monospace;
+  font-size:.7rem;font-weight:600;letter-spacing:2px;
+  text-transform:uppercase;color:var(--cyan);margin-bottom:1rem;
+}
+.section-label::before{content:'//';color:var(--muted);}
+
+.section-title{
+  font-size:clamp(1.6rem,3.5vw,2.6rem);
+  font-weight:900;color:var(--white);line-height:1.2;
+  letter-spacing:-.5px;margin-bottom:1rem;
+}
+
+.section-sub{
+  font-size:1rem;color:var(--muted);line-height:1.9;
+  max-width:560px;
+}
+
+.line{
+  width:40px;height:2px;
+  background:var(--cyan);border-radius:2px;
+  margin:1rem 0 1.5rem;
+}
+
+/* ===== ABOUT ===== */
+#about{background:var(--surface);}
+.about-grid{
+  display:grid;grid-template-columns:1fr 1fr;
+  gap:4rem;align-items:center;max-width:1000px;margin:0 auto;
+}
+
+.about-text .section-sub{
+  margin-top:1rem;max-width:100%;
+}
+
+.about-text .tagline{
+  font-family:'JetBrains Mono',monospace;
+  font-size:.9rem;color:var(--cyan);margin-bottom:.5rem;
+}
+
+.highlights{
+  display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:2rem;
+}
+
+.highlight-item{
+  display:flex;align-items:center;gap:10px;
+  font-size:.9rem;color:var(--text);
+}
+.highlight-item::before{
+  content:'▸';color:var(--green);font-weight:700;
+}
+
+.profile-image-wrap{
+  width:280px;height:280px;margin:0 auto;border-radius:50%;
+  border:3px solid var(--green);padding:6px;
+  box-shadow:0 0 60px rgba(0,255,136,.15),0 0 120px rgba(255,51,85,.08);
+  overflow:hidden;
+}
+.profile-img{
+  width:100%;height:100%;border-radius:50%;object-fit:cover;
+}
+.profile-placeholder{
+  width:100%;height:100%;border-radius:50%;
+  background:linear-gradient(135deg,#1a0a0a,#001a2e);
+  display:flex;align-items:center;justify-content:center;
+}
+
+/* ===== SKILLS ===== */
+#skills{background:var(--bg);}
+.skills-header{max-width:600px;margin-bottom:3rem;}
+.skills-header .section-sub{margin-top:1rem;}
+
+.skills-grid{
+  display:grid;grid-template-columns:repeat(4,1fr);
+  gap:1.2rem;max-width:1000px;
+}
+
+.skill-cat{
+  background:var(--card);border:1px solid var(--border);
+  border-radius:16px;padding:1.8rem;
+  transition:border-color .3s,transform .3s;
+}
+.skill-cat:hover{border-color:rgba(0,170,255,.25);transform:translateY(-3px);}
+
+.skill-cat-icon{
+  font-size:1.5rem;margin-bottom:1rem;
+}
+.skill-cat h3{
+  font-size:1rem;font-weight:800;color:var(--white);
+  margin-bottom:.8rem;
+}
+.skill-tags{display:flex;flex-wrap:wrap;gap:.5rem;}
+.skill-tag{
+  padding:4px 12px;border-radius:50px;
+  font-size:.75rem;font-weight:600;
+  border:1px solid var(--border);color:var(--muted);
+  background:rgba(0,170,255,.04);transition:all .3s;
+}
+.skill-tag:hover{border-color:rgba(0,170,255,.3);color:var(--cyan);}
+
+/* ===== CERTIFICATIONS ===== */
+#certs{background:var(--surface);}
+.certs-header{max-width:600px;margin-bottom:3rem;}
+.certs-header .section-sub{margin-top:1rem;}
+
+.certs-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);
+  gap:1.2rem;max-width:1000px;
+}
+
+.cert-card{
+  background:var(--card);border:1px solid var(--border);
+  border-radius:16px;padding:1.8rem;
+  text-align:center;transition:all .3s;
+  display:block;
+}
+.cert-card:hover{border-color:rgba(0,170,255,.25);transform:translateY(-3px);text-decoration:none;}
+
+.cert-icon{font-size:2rem;margin-bottom:1rem;}
+.cert-card h3{
+  font-size:1rem;font-weight:800;color:var(--white);margin-bottom:.4rem;
+}
+.cert-card p{font-size:.82rem;color:var(--muted);}
+
+/* ===== PROJECTS ===== */
+#projects{background:var(--bg);}
+.projects-header{max-width:600px;margin-bottom:3rem;}
+.projects-header .section-sub{margin-top:1rem;}
+
+.projects-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);
+  gap:1.2rem;max-width:1100px;
+}
+
+.project-card{
+  background:var(--card);border:1px solid var(--border);
+  border-radius:16px;padding:2rem;
+  transition:all .3s;
+}
+.project-card:hover{border-color:rgba(0,255,136,.25);transform:translateY(-4px);}
+
+.project-icon{font-size:1.8rem;margin-bottom:1rem;}
+.project-card h3{
+  font-size:1.15rem;font-weight:800;color:var(--white);margin-bottom:.5rem;
+}
+.project-card p{
+  font-size:.88rem;color:var(--muted);line-height:1.7;margin-bottom:1.2rem;
+}
+.project-link{
+  display:inline-flex;align-items:center;gap:6px;
+  font-size:.85rem;font-weight:700;color:var(--green);transition:gap .3s;
+}
+.project-link:hover{gap:12px;}
+
+/* ===== CONTACT ===== */
+#contact{background:var(--surface);}
+.contact-inner{max-width:600px;margin:0 auto;text-align:center;}
+
+.contact-inner p{
+  font-size:1rem;color:var(--muted);line-height:1.9;margin-bottom:2rem;
+}
+
+.social-links{
+  display:flex;justify-content:center;gap:1rem;flex-wrap:wrap;
+}
+
+.social-btn{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:12px 24px;border-radius:50px;
+  font-size:.9rem;font-weight:700;
+  border:1px solid var(--border);
+  background:var(--card);color:var(--text);
+  transition:all .3s;
+}
+.social-btn:hover{
+  border-color:var(--green);color:var(--green);
+  transform:translateY(-2px);
+}
+
+/* ===== FOOTER ===== */
+footer{
+  border-top:1px solid var(--border);
+  padding:2rem 6%;
+  display:flex;align-items:center;
+  justify-content:space-between;flex-wrap:wrap;gap:1rem;
+}
+.footer-copy{
+  font-family:'JetBrains Mono',monospace;
+  font-size:.78rem;color:rgba(255,255,255,.2);
+}
+.footer-nav{display:flex;gap:1.5rem;}
+.footer-nav a{
+  font-size:.78rem;color:rgba(255,255,255,.25);transition:color .3s;
+}
+.footer-nav a:hover{color:var(--green);}
+
+/* ===== RESPONSIVE ===== */
+@media(max-width:900px){
+  nav{padding:0 4%;}
+  .menu{display:none;}
+  .about-grid{grid-template-columns:1fr;gap:2rem;}
+  .skills-grid{grid-template-columns:repeat(2,1fr);}
+  .certs-grid{grid-template-columns:repeat(2,1fr);}
+  .projects-grid{grid-template-columns:repeat(2,1fr);}
+}
+
+@media(max-width:600px){
+  nav{height:60px;}
+  .hero h1{font-size:1.8rem;}
+  .hero-stats{gap:1.5rem;}
+  .skills-grid{grid-template-columns:1fr 1fr;gap:.8rem;}
+  .skill-cat{padding:1.3rem;}
+  .certs-grid{grid-template-columns:1fr;}
+  .highlights{grid-template-columns:1fr;}
+  .hero-cta{flex-direction:column;align-items:center;}
+  .btn-primary,.btn-secondary{width:100%;justify-content:center;}
+  .profile-image-wrap{width:220px;height:220px;}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="logo">moaz@profile</div>
+  <ul class="menu">
+    <li><a href="#about">.about()</a></li>
+    <li><a href="#skills">.skills()</a></li>
+    <li><a href="#certs">.certs()</a></li>
+    <li><a href="#projects">.security()</a></li>
+    <li><a href="#frontend-projects">.frontend()</a></li>
+    <li><a href="#contact">.contact()</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+  <div class="hero-content">
+    <div class="hero-badge">Red Team · Frontend Developer</div>
+    <h1>
+      <span class="highlight">Moaz</span> Mohamed<br>
+      <span class="highlight2">Cybersecurity</span> Professional
+    </h1>
+    <div class="hero-sub">$ <span>whoami</span> — Red Team · Ethical Hacker · Frontend Dev</div>
+    <p>Securing systems, breaking barriers. A passionate cybersecurity professional with 7+ years of deep-dive experience in ethical hacking, red teaming, bug bounty hunting, and front-end development.</p>
+    <div class="hero-cta">
+      <a href="#projects" class="btn-primary">View My Work →</a>
+      <a href="#contact" class="btn-secondary">Contact Me</a>
+    </div>
+    <div class="hero-stats">
+      <div class="stat-item"><div class="stat-num">7+</div><div class="stat-label">Years Exp.</div></div>
+      <div class="stat-item"><div class="stat-num">OSCP</div><div class="stat-label">Certified</div></div>
+      <div class="stat-item"><div class="stat-num">Red</div><div class="stat-label">Team Expert</div></div>
+      <div class="stat-item"><div class="stat-num">BB</div><div class="stat-label">Bug Bounty</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="section" id="about">
+  <div class="about-grid">
+    <div class="about-text">
+      <div class="section-label">About</div>
+      <div class="line"></div>
+      <h2 class="section-title">Who <span style="color:var(--green);">I Am</span></h2>
+      <div class="tagline">$ cat /etc/passwd | grep moaz</div>
+      <p class="section-sub">
+        I'm <strong style="color:var(--white);">Moaz Mohamed</strong>, a dedicated Cybersecurity Professional with over 7 years of hands-on experience in ethical hacking, red team operations, and bug bounty hunting. I hold the <strong style="color:var(--green);">OSCP</strong> certification and continuously push the boundaries of offensive security.
+      </p>
+      <p class="section-sub" style="margin-top:1rem;">
+        Beyond security, I'm also a Front-End Web Developer crafting modern, responsive web experiences. I combine my deep technical knowledge with creative problem-solving to deliver results that matter.
+      </p>
+      <div class="highlights">
+        <div class="highlight-item">Ethical Hacking</div>
+        <div class="highlight-item">Red Teaming</div>
+        <div class="highlight-item">Bug Bounty Hunter</div>
+        <div class="highlight-item">OSCP Certified</div>
+        <div class="highlight-item">Penetration Testing</div>
+        <div class="highlight-item">Front-End Dev</div>
+        <div class="highlight-item">Vulnerability Research</div>
+        <div class="highlight-item">Security Auditing</div>
+      </div>
+    </div>
+    <div style="text-align:center;">
+      <div class="profile-image-wrap">
+        <img src="profile.png" alt="Moaz Mohamed" class="profile-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <div class="profile-placeholder" style="display:none;">
+          <span style="font-family:'JetBrains Mono',monospace;font-size:5rem;color:var(--green);font-weight:900;">M</span>
+        </div>
+      </div>
+      <p style="margin-top:1rem;font-family:'JetBrains Mono',monospace;font-size:.85rem;color:var(--muted);">
+        Moaz Mohamed — Red Team · Frontend Dev
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section class="section" id="skills">
+  <div class="skills-header">
+    <div class="section-label">Skills</div>
+    <div class="line"></div>
+    <h2 class="section-title">Technical <span style="color:var(--green);">Expertise</span></h2>
+    <p class="section-sub">Core competencies I've developed over 7+ years in cybersecurity and development.</p>
+  </div>
+  <div class="skills-grid">
+    <div class="skill-cat">
+      <div class="skill-cat-icon">🛡️</div>
+      <h3>Offensive Security</h3>
+      <div class="skill-tags">
+        <span class="skill-tag">Penetration Testing</span>
+        <span class="skill-tag">Red Teaming</span>
+        <span class="skill-tag">OSCP</span>
+        <span class="skill-tag">Exploit Dev</span>
+        <span class="skill-tag">Privilege Escalation</span>
+      </div>
+    </div>
+    <div class="skill-cat">
+      <div class="skill-cat-icon">🎯</div>
+      <h3>Bug Bounty</h3>
+      <div class="skill-tags">
+        <span class="skill-tag">Web App Testing</span>
+        <span class="skill-tag">API Hacking</span>
+        <span class="skill-tag">XSS/CSRF</span>
+        <span class="skill-tag">SQL Injection</span>
+        <span class="skill-tag">SSRF</span>
+      </div>
+    </div>
+    <div class="skill-cat">
+      <div class="skill-cat-icon">🔍</div>
+      <h3>Security Tools</h3>
+      <div class="skill-tags">
+        <span class="skill-tag">Burp Suite</span>
+        <span class="skill-tag">Nmap</span>
+        <span class="skill-tag">Metasploit</span>
+        <span class="skill-tag">Wireshark</span>
+        <span class="skill-tag">BloodHound</span>
+      </div>
+    </div>
+    <div class="skill-cat">
+      <div class="skill-cat-icon">💻</div>
+      <h3>Front-End Dev</h3>
+      <div class="skill-tags">
+        <span class="skill-tag">HTML/CSS</span>
+        <span class="skill-tag">JavaScript</span>
+        <span class="skill-tag">React</span>
+        <span class="skill-tag">Tailwind CSS</span>
+        <span class="skill-tag">Git</span>
+        <span class="skill-tag">Responsive Design</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CERTIFICATIONS -->
+<section class="section" id="certs">
+  <div class="certs-header">
+    <div class="section-label">Certifications</div>
+    <div class="line"></div>
+    <h2 class="section-title">Professional <span style="color:var(--green);">Credentials</span></h2>
+    <p class="section-sub">Industry-recognized certifications that validate my expertise.</p>
+  </div>
+  <div class="certs-grid">
+    <a href="https://drive.google.com/file/d/1V3fzM2DJjKN3G7R8dBIi2MG7p0DCHX2W/view" target="_blank" class="cert-card">
+      <div class="cert-icon">🏆</div>
+      <h3>TCM Security</h3>
+      <p>Practical Ethical Hacking Certificate — Hands-on ethical hacking and penetration testing.</p>
+    </a>
+    <a href="https://app.cybrary.it/courses/api/certificate/CC-b56e9874-affd-4474-9881-33ccb970bc10/view" target="_blank" class="cert-card">
+      <div class="cert-icon">⚡</div>
+      <h3>Penetration Testing & Ethical Hacking</h3>
+      <p>Cybrary — Comprehensive penetration testing and ethical hacking certification.</p>
+    </a>
+    <a href="https://app.cybrary.it/courses/api/certificate/CC-294b7c03-db87-4293-8972-06659df4fb4c/view" target="_blank" class="cert-card">
+      <div class="cert-icon">🐍</div>
+      <h3>Python for Cyber Security</h3>
+      <p>Cybrary — Professional Python programming for cybersecurity applications.</p>
+    </a>
+    <a href="https://drive.google.com/file/d/1R9pGIPxmUdS7tW4eB9rvnApeuD1V-6DF/view" target="_blank" class="cert-card">
+      <div class="cert-icon">🛡️</div>
+      <h3>Cybersecurity Internship</h3>
+      <p>Code Alpha (Aug 2024) — Hands-on cybersecurity internship program.</p>
+    </a>
+    <a href="https://drive.google.com/file/d/11dFaBe2cMdh0k9UdvLyBnPrnEZjk15Ak/view" target="_blank" class="cert-card">
+      <div class="cert-icon">💻</div>
+      <h3>Front-end Development</h3>
+      <p>TIEC@Creativac — Front-end web development professional training.</p>
+    </a>
+  </div>
+</section>
+
+<!-- CYBERSECURITY PROJECTS -->
+<section class="section" id="projects" style="background:var(--surface);">
+  <div class="projects-header">
+    <div class="section-label" style="color:var(--red);">Cybersecurity Projects</div>
+    <div class="line" style="background:var(--red);"></div>
+    <h2 class="section-title">Security <span style="color:var(--red);">Tools</span></h2>
+    <p class="section-sub">Python-based cybersecurity tools for penetration testing and vulnerability assessment.</p>
+  </div>
+  <div class="projects-grid">
+    <a href="https://github.com/MoazMohamed891/Phishing_Detector" target="_blank" class="project-card">
+      <div class="project-icon" style="color:var(--red);">🎣</div>
+      <h3>Phishing Detector</h3>
+      <p>Detects phishing URLs and emails using pattern analysis and threat intelligence.</p>
+      <span class="project-link" style="color:var(--red);">GitHub →</span>
+    </a>
+    <a href="https://github.com/MoazMohamed891/Port_Scan_Network" target="_blank" class="project-card">
+      <div class="project-icon" style="color:var(--red);">🔍</div>
+      <h3>Port Scan Network</h3>
+      <p>Python tool for scanning open TCP ports on a target IP.</p>
+      <span class="project-link" style="color:var(--red);">GitHub →</span>
+    </a>
+    <a href="https://github.com/MoazMohamed891/Scan_Csrf" target="_blank" class="project-card">
+      <div class="project-icon" style="color:var(--red);">🛡️</div>
+      <h3>Scan CSRF</h3>
+      <p>Automated detection of CSRF vulnerabilities.</p>
+      <span class="project-link" style="color:var(--red);">GitHub →</span>
+    </a>
+    <a href="https://github.com/MoazMohamed891/Scan_Xss" target="_blank" class="project-card">
+      <div class="project-icon" style="color:var(--red);">⚡</div>
+      <h3>Scan XSS</h3>
+      <p>Detects XSS vulnerabilities through URL fuzzing and payload injection.</p>
+      <span class="project-link" style="color:var(--red);">GitHub →</span>
+    </a>
+    <a href="https://github.com/MoazMohamed891/Sniffer" target="_blank" class="project-card">
+      <div class="project-icon" style="color:var(--red);">📡</div>
+      <h3>Sniffer</h3>
+      <p>Network packet sniffer using Python sockets.</p>
+      <span class="project-link" style="color:var(--red);">GitHub →</span>
+    </a>
+    <a href="https://github.com/MoazMohamed891/Firewall_Name" target="_blank" class="project-card">
+      <div class="project-icon" style="color:var(--red);">🔥</div>
+      <h3>Firewall Name</h3>
+      <p>Identifies the firewall type on target systems.</p>
+      <span class="project-link" style="color:var(--red);">GitHub →</span>
+    </a>
+    <a href="https://github.com/MoazMohamed891/Page_hidde" target="_blank" class="project-card">
+      <div class="project-icon" style="color:var(--red);">🕵️</div>
+      <h3>Page Hidden</h3>
+      <p>Identifies and lists hidden web pages.</p>
+      <span class="project-link" style="color:var(--red);">GitHub →</span>
+    </a>
+    <a href="https://github.com/MoazMohamed891/INFO_IP" target="_blank" class="project-card">
+      <div class="project-icon" style="color:var(--red);">🌍</div>
+      <h3>INFO_IP</h3>
+      <p>Collects geolocation and DNS data of IPs.</p>
+      <span class="project-link" style="color:var(--red);">GitHub →</span>
+    </a>
+    <a href="https://github.com/MoazMohamed891/INFO_Number_Phone" target="_blank" class="project-card">
+      <div class="project-icon" style="color:var(--red);">📱</div>
+      <h3>INFO_Number_Phone</h3>
+      <p>Retrieves metadata for phone numbers.</p>
+      <span class="project-link" style="color:var(--red);">GitHub →</span>
+    </a>
+    <a href="https://github.com/MoazMohamed891/List_Password" target="_blank" class="project-card">
+      <div class="project-icon" style="color:var(--red);">📋</div>
+      <h3>List_Password</h3>
+      <p>Generates password lists for brute-force attacks.</p>
+      <span class="project-link" style="color:var(--red);">GitHub →</span>
+    </a>
+    <a href="https://github.com/MoazMohamed891/Zero_One_Crypt" target="_blank" class="project-card">
+      <div class="project-icon" style="color:var(--red);">🔐</div>
+      <h3>Zero_One_Crypt</h3>
+      <p>Encryption using custom 0/1 cipher logic.</p>
+      <span class="project-link" style="color:var(--red);">GitHub →</span>
+    </a>
+    <a href="https://github.com/MoazMohamed891/INFO_SYSTEM" target="_blank" class="project-card">
+      <div class="project-icon" style="color:var(--red);">💻</div>
+      <h3>INFO_SYSTEM</h3>
+      <p>Displays target system information.</p>
+      <span class="project-link" style="color:var(--red);">GitHub →</span>
+    </a>
+    <a href="https://github.com/MoazMohamed891/Encry_Marshal" target="_blank" class="project-card">
+      <div class="project-icon" style="color:var(--red);">🔑</div>
+      <h3>Encry_Marshal</h3>
+      <p>Encrypt/decrypt scripts using Python marshal.</p>
+      <span class="project-link" style="color:var(--red);">GitHub →</span>
+    </a>
+  </div>
+</section>
+
+<!-- FRONTEND PROJECTS -->
+<section class="section" id="frontend-projects">
+  <div class="projects-header">
+    <div class="section-label" style="color:var(--cyan);">Frontend Projects</div>
+    <div class="line" style="background:var(--cyan);"></div>
+    <h2 class="section-title">Web <span style="color:var(--cyan);">Development</span></h2>
+    <p class="section-sub">Modern responsive websites and digital experiences I've built.</p>
+  </div>
+  <div class="projects-grid" style="max-width:800px;">
+    <a href="https://asseccccccza78184867.github.io/access/" target="_blank" class="project-card">
+      <div class="project-icon" style="color:var(--cyan);">🌐</div>
+      <h3>ACCESS Digital Agency</h3>
+      <p>Full digital marketing agency website — modern responsive design with bilingual support and interactive UI.</p>
+      <span class="project-link" style="color:var(--cyan);">View Live →</span>
+    </a>
+    <a href="https://asseccccccza78184867.github.io/access_work1/" target="_blank" class="project-card">
+      <div class="project-icon" style="color:var(--cyan);">📱</div>
+      <h3>ACCESS Work 1</h3>
+      <p>Additional web project showcasing responsive design, clean UI, and cross-device compatibility.</p>
+      <span class="project-link" style="color:var(--cyan);">View Live →</span>
+    </a>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="section" id="contact">
+  <div class="contact-inner">
+    <div class="section-label">Contact</div>
+    <div class="line" style="margin:1rem auto;"></div>
+    <h2 class="section-title">Let's <span style="color:var(--green);">Connect</span></h2>
+    <p>Have a security project, pentesting engagement, or just want to connect? Reach out — I'm always open to new challenges and opportunities.</p>
+    <div class="social-links">
+      <a href="https://www.linkedin.com/in/moaaz-mohamed-hassan-07604a348" target="_blank" class="social-btn">🔗 LinkedIn</a>
+      <a href="https://github.com/MoazMohamed891" target="_blank" class="social-btn">🐙 GitHub</a>
+      <a href="https://asseccccccza78184867.github.io/access/" target="_blank" class="social-btn">🌐 Portfolio</a>
+      <a href="https://x.com/" target="_blank" class="social-btn">🐦 Twitter</a>
+      <a href="https://www.instagram.com/" target="_blank" class="social-btn">📸 Instagram</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <span class="footer-copy">© 2026 Moaz Mohamed — Cybersecurity Professional</span>
+  <nav class="footer-nav">
+    <a href="#about">About</a>
+    <a href="#skills">Skills</a>
+    <a href="#certs">Certs</a>
+    <a href="#projects">Security</a>
+    <a href="#frontend-projects">Frontend</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</footer>
+
+<script>
+/* ===== NAV SCROLL ===== */
+window.addEventListener('scroll', () => {
+  document.querySelector('nav').style.background =
+    window.scrollY > 50 ? 'rgba(10,14,20,0.98)' : 'rgba(10,14,20,0.92)';
+});
+
+/* ===== SCROLL REVEAL ===== */
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.style.opacity = '1';
+      e.target.style.transform = 'translateY(0)';
+    }
+  });
+}, { threshold: 0.1 });
+
+document.querySelectorAll('.skill-cat, .cert-card, .project-card, .highlight-item').forEach(el => {
+  el.style.opacity = '0';
+  el.style.transform = 'translateY(24px)';
+  el.style.transition = 'opacity .6s ease, transform .6s ease';
+  observer.observe(el);
+});
+</script>
+
+</body>
+</html>
